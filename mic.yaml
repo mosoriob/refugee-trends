@@ -1,0 +1,24 @@
+step: 1
+name: refugee-trends
+docker_image: refugee-trends:latest
+framework: !!python/object/apply:mic.constants.Framework
+- !!python/tuple
+  - general
+  - mintproject/generic:latest
+container_name: refugee-trends_521fce43
+inputs:
+  migration_gtrends_csv:
+    path: Migration_GTrends.csv
+    format: csv
+code_files:
+  model_r:
+    path: model.R
+    format: R
+outputs:
+  accuracy_csv:
+    path: accuracy.csv
+    format: csv
+  rplots_pdf:
+    path: Rplots.pdf
+    format: pdf
+github_repo_url: https://github.com/jataware/refugee-trends.git
